@@ -1,0 +1,18 @@
+import cv2 as cv
+import numpy as np
+import glob
+import os
+#Choose the path where you want to make a folder
+os.mkdir('F:/opencv folder/Images/gray_images9')
+#choose the path for images
+images_path=glob.glob('F:/opencv folder/Images/*.jpg')
+
+i=0
+for image in images_path:
+    img=cv.imread(image)
+    gray_images=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    cv.imshow('Gray Images',gray_images)
+    cv.imwrite('F:/opencv folder/Images/gray_images/image%02i.jpg'%i,gray_images)
+    i+=1
+    cv.waitKey(0)
+    cv.destroyAllWindows()
